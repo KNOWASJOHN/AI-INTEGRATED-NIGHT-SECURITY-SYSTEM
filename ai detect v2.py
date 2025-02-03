@@ -31,7 +31,7 @@ def detect_objects(frame):
     return frame, objects
 
 def capture_webcam_image():
-    save_folder = r'C:\Users\annam\Downloads\p\images'
+    save_folder = r'C:\save-folder' #folder to save captured image
     if not os.path.exists(save_folder):
         os.makedirs(save_folder)
 
@@ -59,8 +59,8 @@ def capture_webcam_image():
     return None, None
 
 def send_email(snapshot_filename):
-    email = "2005techreview@gmail.com"
-    receiver_email = "storagejohn4.5.6@gmail.com"
+    email = "senter@gmail.com" #email from which email is being sent
+    receiver_email = "receiver@gmail.com" #email of receiver
     subject = "WARNING!!!!!!!"
     message = "MOTION DETECTED!!!!"
 
@@ -80,7 +80,7 @@ def send_email(snapshot_filename):
 
         server = smtplib.SMTP("smtp.gmail.com", 587)
         server.starttls()
-        server.login(email, "culnexqnwhwtviam")
+        server.login(email, "emailcode") #emailcode refers to app password 
         server.sendmail(email, receiver_email, msg.as_string())
         server.quit()
 
@@ -90,7 +90,7 @@ def send_email(snapshot_filename):
 
 pygame.mixer.init()
 ser = serial.Serial('COM7', 9600)
-sound_file_path = r'C:\Users\annam\Downloads\p\1.mp3'
+sound_file_path = r'C:\test.mp3' #mp3 file to play sound 
 print("Waiting for messages from Arduino...")
 
 last_msg_time = 0
